@@ -1,7 +1,7 @@
 <template>
   <div class="square">
     <div class="piece">
-      <button v-if="!confirming" @click="clicked" data-cy="newGame">
+      <button v-if="!confirming" @click.stop="clicked" data-cy="newGame">
         New Game
       </button>
       <div v-if="confirming" class="confirming">
@@ -19,6 +19,8 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+
+  inheritAttrs: false, // don't emit click events natively, let me do it
 
   data() {
     return {

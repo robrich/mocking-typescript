@@ -75,4 +75,25 @@ describe('App.vue', () => {
 
   });
 
+  it('should prompt for new game when in progress', () => {
+
+    // arrange
+
+    // act
+
+    // get into a game
+    cy.get('#0').click();
+    cy.get('#1').click();
+    cy.get('#2').click();
+
+    // click the new game button
+    cy.get('[data-cy="newGame"]').click();
+
+    // assert
+    cy.get('[data-cy="newGame"]').should('not.exist');
+    cy.get('[data-cy="yes"]').should('exist');
+    cy.get('#2 i').should('have.class', 'fas fa-times'); // 'x'
+
+  });
+
 });
