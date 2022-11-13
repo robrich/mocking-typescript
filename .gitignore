@@ -4,4 +4,4 @@ dist
 results
 package-lock.json
 redis-data
-.node-version
+*.txt
